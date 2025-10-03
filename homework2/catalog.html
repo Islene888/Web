@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Catalog - Vallejo Public Library</title>
+</head>
+<body>
+    <header>
+        <h1>Vallejo Public Library - Book Catalog</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Book Catalog</a></li>
+                <li><a href="book_detail.html">Sample Book</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="search-section">
+            <h2>Search Our Collection</h2>
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Find Books</legend>
+
+                    <label for="search-query">Search by title, author, or keyword:</label>
+                    <input type="search" id="search-query" name="query" placeholder="Enter search terms...">
+
+                    <label for="category">Category:</label>
+                    <select id="category" name="category">
+                        <option value="">All Categories</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="biography">Biography</option>
+                        <option value="history">History</option>
+                        <option value="science">Science</option>
+                        <option value="children">Children's Books</option>
+                        <option value="young-adult">Young Adult</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                        <option value="sci-fi">Science Fiction</option>
+                    </select>
+
+                    <label for="availability">Availability:</label>
+                    <select id="availability" name="availability">
+                        <option value="">All Books</option>
+                        <option value="available">Available Now</option>
+                        <option value="reserved">Currently Reserved</option>
+                        <option value="checked-out">Checked Out</option>
+                    </select>
+
+                    <button type="submit">Search</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="catalog-results">
+            <h2>Featured Books</h2>
+            <p>Browse our collection of books. Click on any title to view detailed information and check availability.</p>
+
+            <table>
+                <caption>Library Book Collection</caption>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>ISBN</th>
+                        <th>Total Copies</th>
+                        <th>Available</th>
+                        <th>Status</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>To Kill a Mockingbird</strong></td>
+                        <td>Harper Lee</td>
+                        <td>Classic Fiction</td>
+                        <td>978-0-06-112008-4</td>
+                        <td>5</td>
+                        <td>3</td>
+                        <td><span style="color: green;">Available</span></td>
+                        <td><a href="book_detail.html">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>1984</strong></td>
+                        <td>George Orwell</td>
+                        <td>Dystopian Fiction</td>
+                        <td>978-0-452-28423-4</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td><span style="color: orange;">Limited</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Great Gatsby</strong></td>
+                        <td>F. Scott Fitzgerald</td>
+                        <td>Classic Fiction</td>
+                        <td>978-0-7432-7356-5</td>
+                        <td>6</td>
+                        <td>0</td>
+                        <td><span style="color: red;">Unavailable</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sapiens: A Brief History of Humankind</strong></td>
+                        <td>Yuval Noah Harari</td>
+                        <td>History/Science</td>
+                        <td>978-0-06-231609-7</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td><span style="color: green;">Available</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Midnight Library</strong></td>
+                        <td>Matt Haig</td>
+                        <td>Contemporary Fiction</td>
+                        <td>978-0-525-55948-1</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td><span style="color: green;">Available</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Educated</strong></td>
+                        <td>Tara Westover</td>
+                        <td>Biography/Memoir</td>
+                        <td>978-0-399-59050-4</td>
+                        <td>5</td>
+                        <td>2</td>
+                        <td><span style="color: green;">Available</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Seven Husbands of Evelyn Hugo</strong></td>
+                        <td>Taylor Jenkins Reid</td>
+                        <td>Contemporary Fiction</td>
+                        <td>978-1-5011-3981-2</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td><span style="color: red;">Unavailable</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Atomic Habits</strong></td>
+                        <td>James Clear</td>
+                        <td>Self-Help</td>
+                        <td>978-0-7352-1129-2</td>
+                        <td>6</td>
+                        <td>3</td>
+                        <td><span style="color: green;">Available</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Where the Crawdads Sing</strong></td>
+                        <td>Delia Owens</td>
+                        <td>Mystery/Fiction</td>
+                        <td>978-0-7352-1909-0</td>
+                        <td>7</td>
+                        <td>1</td>
+                        <td><span style="color: orange;">Limited</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>The Alchemist</strong></td>
+                        <td>Paulo Coelho</td>
+                        <td>Philosophy/Fiction</td>
+                        <td>978-0-06-112241-5</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td><span style="color: green;">Available</span></td>
+                        <td><a href="#">View Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="catalog-info">
+            <h2>How to Use Our Catalog</h2>
+            <ol>
+                <li><strong>Search:</strong> Use the search form above to find specific books by title, author, or keyword.</li>
+                <li><strong>Browse:</strong> View our featured collection in the table above.</li>
+                <li><strong>Check Availability:</strong> The "Available" column shows how many copies are currently available for checkout.</li>
+                <li><strong>View Details:</strong> Click "View Details" to see complete information about any book.</li>
+                <li><strong>Reserve a Book:</strong> If a book is available, you can reserve it from the book's detail page.</li>
+            </ol>
+
+            <h3>Status Legend</h3>
+            <ul>
+                <li><span style="color: green;"><strong>Available:</strong></span> Multiple copies available for checkout</li>
+                <li><span style="color: orange;"><strong>Limited:</strong></span> Only one copy available</li>
+                <li><span style="color: red;"><strong>Unavailable:</strong></span> All copies are currently checked out</li>
+            </ul>
+        </section>
+
+        <section id="new-acquisitions">
+            <h2>New Acquisitions</h2>
+            <p>Check out our latest additions to the collection:</p>
+            <ul>
+                <li><strong>The Thursday Murder Club</strong> by Richard Osman - Mystery</li>
+                <li><strong>Klara and the Sun</strong> by Kazuo Ishiguro - Science Fiction</li>
+                <li><strong>The Vanishing Half</strong> by Brit Bennett - Literary Fiction</li>
+                <li><strong>Caste</strong> by Isabel Wilkerson - Social Science</li>
+                <li><strong>The Invisible Bridge</strong> by Julie Orringer - Historical Fiction</li>
+            </ul>
+        </section>
+
+        <nav aria-label="Catalog pagination">
+            <h3>Browse More Books</h3>
+            <ul>
+                <li><a href="#" aria-label="Previous page">← Previous</a></li>
+                <li><a href="#" aria-current="page">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#" aria-label="Next page">Next →</a></li>
+            </ul>
+            <p>Showing books 1-10 of 1,247 total books in our collection.</p>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vallejo Public Library. All rights reserved.</p>
+        <p><a href="index.html">Return to Home</a> | <a href="mailto:info@vallejolibrary.org">Contact Us</a></p>
+    </footer>
+</body>
+</html>
