@@ -1,0 +1,182 @@
+/* CSS Flexbox练习样式文件 */
+
+/* 页面主体样式 */
+body {
+    font-family: Helvetica, Arial, sans-serif; /* 设置字体族，优先Helvetica，依次降级 */
+    background-color: #f9f9f9; /* 浅灰色背景 */
+    color: #222; /* 深灰色文字 */
+    margin: 0; /* 移除默认外边距 */
+    padding: 0 20px; /* 上下0边距，左右20px边距 */
+    line-height: 1.6; /* 行高1.6倍，增加可读性 */
+}
+
+/* ==================== Flexbox练习部分 ==================== */
+
+/* 练习1：水平导航链接 */
+.container ul {
+    display: flex; /* 使用flexbox布局 */
+    list-style: none; /* 移除列表样式 */
+    padding: 0; /* 移除内边距 */
+    margin: 0; /* 移除外边距 */
+    gap: 20px; /* 子元素间距20px */
+    border: 2px solid #333; /* 深色边框 */
+    padding: 20px; /* 内边距20px */
+    background: white; /* 白色背景 */
+}
+
+/* 导航列表项样式 */
+.container li {
+    background: #0066ff; /* 蓝色背景 */
+    border-radius: 4px; /* 4px圆角 */
+}
+
+/* 导航链接样式 */
+.container a {
+    display: block; /* 块级显示，方便设置内边距 */
+    color: white; /* 白色文字 */
+    padding: 15px 30px; /* 内边距：上下15px，左右30px */
+    text-decoration: none; /* 移除下划线 */
+}
+
+/* 导航链接悬停效果 */
+.container a:hover {
+    background: #0052cc; /* 深一些的蓝色 */
+    text-decoration: none; /* 确保不显示下划线 */
+}
+
+/* 练习2：水果布局（注意顺序重排） */
+.fruits {
+    display: flex; /* 使用flexbox布局 */
+    gap: 10px; /* 子元素间距10px */
+    margin: 20px 0; /* 上下20px外边距 */
+    border: 2px solid #333; /* 深色边框 */
+    padding: 20px; /* 内边距20px */
+    background: white; /* 白色背景 */
+}
+
+/* 水果项目通用样式 */
+.fruits div,
+.fruits article {
+    background: #ff3333; /* 红色背景 */
+    color: white; /* 白色文字 */
+    padding: 20px; /* 内边距20px */
+    border-radius: 20px; /* 20px圆角（胶囊形状） */
+    flex: 1; /* 等分剩余空间 */
+    text-align: center; /* 文字居中 */
+    font-weight: bold; /* 粗体字 */
+}
+
+/* 使用order属性重新排列水果顺序 */
+.fruits div:nth-child(1) { order: 6; } /* Orange移到第6位 */
+.fruits div:nth-child(2) { order: 5; } /* Lemon移到第5位 */
+.fruits article:nth-child(3) { order: 4; } /* Banana移到第4位 */
+.fruits article:nth-child(4) { order: 3; } /* Apple移到第3位 */
+.fruits div:nth-child(5) { order: 2; } /* Apricot移到第2位 */
+.fruits div:nth-child(6) { order: 1; } /* Watermelon移到第1位 */
+
+/* 练习3：等高容器 */
+.exercise .container {
+    display: flex; /* 使用flexbox布局 */
+    gap: 10px; /* 子元素间距10px */
+    margin: 20px 0; /* 上下20px外边距 */
+    border: 2px solid #333; /* 深色边框 */
+    padding: 20px; /* 内边距20px */
+    background: white; /* 白色背景 */
+}
+
+/* 等高容器内的div样式 */
+.exercise .container div {
+    flex: 1; /* 等分剩余空间，同时自动调整高度 */
+    background: #228B22; /* 森林绿色背景 */
+    color: white; /* 白色文字 */
+    padding: 20px; /* 内边距20px */
+    border-radius: 4px; /* 4px圆角 */
+    font-weight: bold; /* 粗体字 */
+}
+
+/* ==================== Grid练习部分 ==================== */
+
+/* 练习4：图片网格布局 */
+.exercise4 {
+    margin: 20px 0; /* 上下20px外边距 */
+    border: 2px solid #333; /* 深色边框 */
+    padding: 20px; /* 内边距20px */
+    background: white; /* 白色背景 */
+}
+
+.exercise4 ul {
+    display: grid; /* 使用CSS Grid布局 */
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); /* 自适应列数，最小50px */
+    gap: 10px; /* 网格间距10px */
+    list-style: none; /* 移除列表样式 */
+    padding: 0; /* 移除内边距 */
+    margin: 0; /* 移除外边距 */
+}
+
+.exercise4 li {
+    display: flex; /* 使用flex居中图片 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+.exercise4 img {
+    width: 50px; /* 固定宽度50px */
+    height: 50px; /* 固定高度50px */
+    display: block; /* 块级显示 */
+}
+
+/* 练习5：7x7网格布局 */
+.exercise5 {
+    margin: 20px 0; /* 上下20px外边距 */
+    border: 2px solid #333; /* 深色边框 */
+    padding: 20px; /* 内边距20px */
+    background: white; /* 白色背景 */
+    display: grid; /* 使用CSS Grid布局 */
+    grid-template-columns: repeat(7, 1fr); /* 7列，等宽分布 */
+    grid-template-rows: repeat(7, 60px); /* 7行，每行60px高 */
+    gap: 2px; /* 网格间距2px */
+    height: 450px; /* 固定高度 */
+}
+
+/* Section one - 占据左侧高矩形区域 */
+.section-one {
+    grid-column: 1 / 4; /* 从第1列到第4列 */
+    grid-row: 1 / 7; /* 从第1行到第7行 */
+    background: rgba(160, 160, 160, 0.8); /* 灰色背景，80%透明度 */
+    color: black; /* 黑色文字 */
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    font-weight: bold; /* 粗体字 */
+    border: 2px solid #666; /* 深灰色边框 */
+    border-radius: 15px; /* 圆角 */
+}
+
+/* Section two - 横向长条区域 */
+.section-two {
+    grid-column: 2 / 7; /* 从第2列到第7列 */
+    grid-row: 4 / 5; /* 从第4行到第5行 */
+    background: rgba(128, 128, 128, 0.9); /* 深灰色背景，90%透明度 */
+    color: white; /* 白色文字 */
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    font-weight: bold; /* 粗体字 */
+    border: 2px solid #666; /* 深灰色边框 */
+    border-radius: 15px; /* 圆角 */
+    z-index: 2; /* 确保在上层 */
+}
+
+/* Section three - 右侧小方块区域 */
+.section-three {
+    grid-column: 6 / 8; /* 从第6列到第8列 */
+    grid-row: 2 / 4; /* 从第2行到第4行 */
+    background: rgba(160, 160, 160, 0.8); /* 灰色背景，80%透明度 */
+    color: black; /* 黑色文字 */
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    font-weight: bold; /* 粗体字 */
+    border: 2px solid #666; /* 深灰色边框 */
+    border-radius: 15px; /* 圆角 */
+}
