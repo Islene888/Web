@@ -1,0 +1,32 @@
+{
+  "name": "frontend-screenshot-testing",
+  "version": "1.0.0",
+  "description": "Automated screenshot testing tool for frontend pages",
+  "main": "screenshot.js",
+  "scripts": {
+    "test": "node test.js",
+    "screenshot": "node screenshot.js",
+    "install-deps": "npm install"
+  },
+  "keywords": [
+    "screenshot",
+    "testing",
+    "frontend",
+    "automation",
+    "puppeteer",
+    "web-development"
+  ],
+  "author": "Islene888",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.0.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Islene888/Web.git"
+  }
+}

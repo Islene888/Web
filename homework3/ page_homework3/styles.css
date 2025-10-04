@@ -1,0 +1,353 @@
+/*
+ * 瓦列霍公共图书馆首页样式文件
+ * 作者: Ella
+ * 创建日期: 2024年10月3日
+ * 描述: 这个CSS文件包含了图书馆网站首页的所有样式定义
+ */
+
+/* ========== 全局样式重置 ========== */
+/* 重置所有元素的默认边距、内边距，并设置盒模型为border-box */
+* {
+    margin: 0;                    /* 清除默认外边距 */
+    padding: 0;                   /* 清除默认内边距 */
+    box-sizing: border-box;       /* 设置盒模型包含边框和内边距 */
+}
+
+/* ========== 页面整体布局 ========== */
+/* 设置页面主体的基本样式 */
+body {
+    font-family: Arial, sans-serif;  /* 设置字体为Arial，备选无衬线字体 */
+    background: white;               /* 设置页面背景色为白色 */
+    padding: 40px 20px;             /* 设置页面内边距：上下40px，左右20px */
+}
+
+/* 主要容器样式 - 包含整个页面内容 */
+.mockup-container {
+    max-width: 1200px;              /* 设置最大宽度为1200px */
+    margin: 0 auto;                 /* 水平居中对齐 */
+    border: 3px solid #000;         /* 设置3px的黑色实线边框 */
+    background: white;              /* 设置背景色为白色 */
+}
+
+/* ========== 通用区域样式 ========== */
+/* 所有主要区域的通用样式 */
+.mockup-section {
+    border-bottom: 2px solid #000;  /* 设置底部2px黑色边框作为分隔线 */
+    padding: 20px;                  /* 设置内边距为20px */
+}
+
+/* 移除最后一个区域的底部边框 */
+.mockup-section:last-child {
+    border-bottom: none;            /* 最后一个区域不显示底部边框 */
+}
+
+/* ========== 页面头部样式 ========== */
+/* 头部容器使用弹性布局 */
+.header {
+    display: flex;                  /* 使用弹性盒子布局 */
+    justify-content: space-between; /* 左右两端对齐 */
+    align-items: center;            /* 垂直居中对齐 */
+    background: #f0f0f0;            /* 设置浅灰色背景 */
+}
+
+/* Logo和标题区域 */
+.logo-area {
+    display: flex;                  /* 使用弹性布局 */
+    align-items: center;            /* 垂直居中对齐 */
+    gap: 20px;                      /* 子元素间距为20px */
+}
+
+/* Logo图标盒子样式 */
+.logo-box {
+    width: 80px;                    /* 设置宽度为80px */
+    height: 80px;                   /* 设置高度为80px */
+    border: 3px solid #000;         /* 设置3px黑色边框 */
+    position: relative;             /* 设置相对定位，用于放置伪元素 */
+    background: white;              /* 设置背景色为白色 */
+}
+
+/* 使用伪元素创建Logo图标的装饰线条 */
+.logo-box::before,
+.logo-box::after {
+    content: '';                    /* 清空伪元素内容 */
+    position: absolute;             /* 设置绝对定位 */
+    background: #000;               /* 设置背景色为黑色 */
+}
+
+/* 第一条装饰线（45度旋转） */
+.logo-box::before {
+    left: 0;                        /* 左边距为0 */
+    right: 0;                       /* 右边距为0 */
+    top: 50%;                       /* 垂直居中 */
+    height: 3px;                    /* 设置高度为3px */
+    transform: rotate(45deg);       /* 顺时针旋转45度 */
+}
+
+/* 第二条装饰线（-45度旋转） */
+.logo-box::after {
+    left: 0;                        /* 左边距为0 */
+    right: 0;                       /* 右边距为0 */
+    top: 50%;                       /* 垂直居中 */
+    height: 3px;                    /* 设置高度为3px */
+    transform: rotate(-45deg);      /* 逆时针旋转45度 */
+}
+
+/* 网站标题样式 */
+.site-title {
+    font-size: 24px;               /* 设置字体大小为24px */
+    font-weight: bold;              /* 设置字体粗细为粗体 */
+}
+
+/* 导航链接样式 */
+.nav-links {
+    font-size: 16px;               /* 设置字体大小为16px */
+}
+
+/* ========== 内容盒子样式 ========== */
+/* 通用内容盒子样式 */
+.content-box {
+    border: 2px solid #000;        /* 设置2px黑色边框 */
+    padding: 20px;                 /* 设置内边距为20px */
+    margin: 20px 0;                /* 设置上下外边距为20px */
+}
+
+/* 盒子标题样式 */
+.box-title {
+    font-size: 20px;               /* 设置字体大小为20px */
+    font-weight: bold;              /* 设置字体粗细为粗体 */
+    margin-bottom: 15px;            /* 设置底部外边距为15px */
+    padding-bottom: 10px;           /* 设置底部内边距为10px */
+    border-bottom: 1px solid #000;  /* 设置底部1px黑色边框 */
+}
+
+/* 盒子内文本样式 */
+.box-text {
+    line-height: 1.6;              /* 设置行高为1.6倍 */
+    margin-bottom: 10px;            /* 设置底部外边距为10px */
+}
+
+/* ========== 特殊区域样式 ========== */
+/* 欢迎区域特殊背景 */
+.welcome-box {
+    background: #f5f5f5;           /* 设置浅灰色背景 */
+}
+
+/* 搜索区域特殊背景 */
+.search-section {
+    background: #f8f8f8;           /* 设置更浅的灰色背景 */
+}
+
+/* 新闻区域特殊背景 */
+.news-box {
+    background: #f5f5f5;           /* 设置浅灰色背景 */
+}
+
+/* ========== 两栏布局样式 ========== */
+/* 两栏网格布局容器 */
+.two-column {
+    display: grid;                  /* 使用CSS网格布局 */
+    grid-template-columns: 1fr 1fr; /* 创建两个等宽的列 */
+    gap: 20px;                      /* 设置列间距为20px */
+}
+
+/* 列内容盒子样式 */
+.column-box {
+    border: 2px solid #000;        /* 设置2px黑色边框 */
+    padding: 15px;                 /* 设置内边距为15px */
+}
+
+/* 列标题样式 */
+.column-title {
+    font-weight: bold;              /* 设置字体粗细为粗体 */
+    margin-bottom: 10px;            /* 设置底部外边距为10px */
+    text-decoration: underline;     /* 添加下划线装饰 */
+}
+
+/* ========== 表单元素样式 ========== */
+/* 表单行基本样式 */
+.form-row {
+    margin-bottom: 15px;            /* 设置底部外边距为15px */
+}
+
+/* 双栏表单行样式 */
+.form-row-double {
+    display: grid;                  /* 使用CSS网格布局 */
+    grid-template-columns: 1fr 1fr; /* 创建两个等宽的列 */
+    gap: 15px;                      /* 设置列间距为15px */
+    margin-bottom: 15px;            /* 设置底部外边距为15px */
+}
+
+/* 表单标签样式 */
+.form-label {
+    display: block;                 /* 设置为块级元素 */
+    margin-bottom: 5px;             /* 设置底部外边距为5px */
+    font-weight: bold;              /* 设置字体粗细为粗体 */
+}
+
+/* 输入框样式 */
+.input-box {
+    width: 100%;                    /* 设置宽度为100% */
+    height: 35px;                   /* 设置高度为35px */
+    border: 2px solid #000;         /* 设置2px黑色边框 */
+    background: white;              /* 设置背景色为白色 */
+}
+
+/* 年龄组选择框特殊样式 */
+.age-group {
+    max-width: 300px;               /* 设置最大宽度为300px */
+}
+
+/* 表单描述文字样式 */
+.form-description {
+    margin-bottom: 20px;            /* 设置底部外边距为20px */
+}
+
+/* 按钮样式 */
+.button-box {
+    border: 3px solid #000;         /* 设置3px黑色边框 */
+    background: #e0e0e0;            /* 设置浅灰色背景 */
+    padding: 10px 30px;             /* 设置内边距：上下10px，左右30px */
+    font-weight: bold;              /* 设置字体粗细为粗体 */
+    display: inline-block;          /* 设置为内联块元素 */
+    margin-top: 10px;               /* 设置顶部外边距为10px */
+    cursor: pointer;                /* 设置鼠标悬停时显示手型光标 */
+}
+
+/* ========== 搜索功能样式 ========== */
+/* 搜索栏容器 */
+.search-bar {
+    display: flex;                  /* 使用弹性盒子布局 */
+    gap: 10px;                      /* 设置子元素间距为10px */
+    align-items: center;            /* 垂直居中对齐 */
+    margin-bottom: 15px;            /* 设置底部外边距为15px */
+}
+
+/* 搜索输入框 */
+.search-input {
+    flex: 1;                        /* 设置弹性增长因子为1，占据剩余空间 */
+    height: 40px;                   /* 设置高度为40px */
+    border: 2px solid #000;         /* 设置2px黑色边框 */
+}
+
+/* 搜索按钮 */
+.search-button {
+    border: 3px solid #000;         /* 设置3px黑色边框 */
+    background: #d0d0d0;            /* 设置中等灰色背景 */
+    padding: 8px 30px;              /* 设置内边距：上下8px，左右30px */
+    font-weight: bold;              /* 设置字体粗细为粗体 */
+    cursor: pointer;                /* 设置鼠标悬停时显示手型光标 */
+}
+
+/* 搜索提示文字 */
+.search-hint {
+    margin-bottom: 10px;            /* 设置底部外边距为10px */
+    font-size: 14px;               /* 设置字体大小为14px */
+}
+
+/* 筛选选项行 */
+.filter-row {
+    display: flex;                  /* 使用弹性盒子布局 */
+    gap: 20px;                      /* 设置子元素间距为20px */
+}
+
+/* 下拉选择框 */
+.dropdown {
+    width: 180px;                   /* 设置宽度为180px */
+    height: 35px;                   /* 设置高度为35px */
+    border: 2px solid #000;         /* 设置2px黑色边框 */
+    display: inline-block;          /* 设置为内联块元素 */
+}
+
+/* ========== 新闻条目样式 ========== */
+/* 单个新闻条目样式 */
+.news-item {
+    margin-bottom: 15px;            /* 设置底部外边距为15px */
+    padding-bottom: 15px;           /* 设置底部内边距为15px */
+    border-bottom: 1px solid #ccc;  /* 设置底部1px浅灰色边框 */
+}
+
+/* 移除最后一个新闻条目的底部边框和内边距 */
+.news-item:last-child {
+    border-bottom: none;            /* 不显示底部边框 */
+    padding-bottom: 0;              /* 底部内边距为0 */
+}
+
+/* 新闻标题样式 */
+.news-title {
+    font-weight: bold;              /* 设置字体粗细为粗体 */
+    margin-bottom: 3px;             /* 设置底部外边距为3px */
+}
+
+/* 新闻日期样式 */
+.news-date {
+    font-size: 14px;               /* 设置字体大小为14px */
+    color: #666;                   /* 设置字体颜色为深灰色 */
+    margin-bottom: 5px;            /* 设置底部外边距为5px */
+}
+
+/* ========== 页面底部样式 ========== */
+/* 页面底部容器样式 */
+.footer {
+    background: #e0e0e0;            /* 设置浅灰色背景 */
+    text-align: center;             /* 设置文本居中对齐 */
+    font-size: 14px;               /* 设置字体大小为14px */
+    line-height: 1.8;              /* 设置行高为1.8倍 */
+}
+
+/* ========== 响应式设计 ========== */
+/* 针对平板和小屏幕设备的媒体查询 */
+@media (max-width: 768px) {
+    /* 调整页面内边距 */
+    body {
+        padding: 20px 10px;         /* 减少页面内边距 */
+    }
+
+    /* 头部在小屏幕上改为垂直布局 */
+    .header {
+        flex-direction: column;     /* 改为垂直排列 */
+        gap: 15px;                  /* 设置子元素间距 */
+    }
+
+    /* 两栏布局在小屏幕上改为单栏 */
+    .two-column,
+    .form-row-double {
+        grid-template-columns: 1fr; /* 改为单列布局 */
+    }
+
+    /* 筛选选项在小屏幕上改为垂直排列 */
+    .filter-row {
+        flex-direction: column;     /* 改为垂直排列 */
+    }
+
+    /* 调整搜索栏在小屏幕上的布局 */
+    .search-bar {
+        flex-direction: column;     /* 改为垂直排列 */
+    }
+
+    /* 搜索输入框在小屏幕上占满宽度 */
+    .search-input {
+        width: 100%;                /* 设置宽度为100% */
+    }
+}
+
+/* 针对手机设备的媒体查询 */
+@media (max-width: 480px) {
+    /* 进一步减少字体大小 */
+    .site-title {
+        font-size: 20px;           /* 减小标题字体大小 */
+    }
+
+    .box-title {
+        font-size: 18px;           /* 减小盒子标题字体大小 */
+    }
+
+    /* 减少内边距 */
+    .mockup-section {
+        padding: 15px;             /* 减少区域内边距 */
+    }
+
+    .content-box {
+        padding: 15px;             /* 减少内容盒子内边距 */
+        margin: 15px 0;            /* 减少内容盒子外边距 */
+    }
+}
