@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>To Kill a Mockingbird - Book Details - Vallejo Public Library</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vallejo Public Library - Book Details</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Book Catalog</a></li>
+                <li><a href="book_detail.html">Sample Book</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        <article>
+            <header>
+                <h2>To Kill a Mockingbird</h2>
+                <p><strong>by Harper Lee</strong></p>
+            </header>
+
+            <section id="book-info">
+                <h3>Book Information</h3>
+                <dl>
+                    <dt>Title:</dt>
+                    <dd>To Kill a Mockingbird</dd>
+
+                    <dt>Author:</dt>
+                    <dd>Harper Lee</dd>
+
+                    <dt>ISBN:</dt>
+                    <dd>978-0-06-112008-4</dd>
+
+                    <dt>Publisher:</dt>
+                    <dd>Harper Perennial Modern Classics</dd>
+
+                    <dt>Publication Date:</dt>
+                    <dd><time datetime="1960-07-11">July 11, 1960</time></dd>
+
+                    <dt>Pages:</dt>
+                    <dd>376</dd>
+
+                    <dt>Language:</dt>
+                    <dd>English</dd>
+
+                    <dt>Genre:</dt>
+                    <dd>Classic Fiction, Coming-of-age, Southern Gothic</dd>
+
+                    <dt>Awards:</dt>
+                    <dd>Pulitzer Prize for Fiction (1961)</dd>
+                </dl>
+            </section>
+
+            <section id="book-summary">
+                <h3>Book Summary</h3>
+                <p>
+                    <cite>To Kill a Mockingbird</cite> is a novel by Harper Lee published in 1960. It was immediately successful,
+                    winning the Pulitzer Prize, and has become a classic of modern American literature. The plot and characters
+                    are loosely based on Lee's observations of her family, her neighbors and an event that occurred near her
+                    hometown of Monroeville, Alabama, in 1936, when she was ten years old.
+                </p>
+                <p>
+                    The story takes place in the fictional town of Maycomb, Alabama, during the 1930s. It is narrated by
+                    Jean Louise "Scout" Finch, a young girl whose father, Atticus Finch, is a lawyer who represents a
+                    black man falsely accused of rape. The novel explores themes of racial injustice, moral growth,
+                    and the loss of innocence through the eyes of Scout and her older brother Jem.
+                </p>
+                <p>
+                    This powerful story addresses issues of race, class, and social justice while following Scout's
+                    coming-of-age journey in the American South. It remains one of the most widely read and studied
+                    novels in American schools and continues to resonate with readers of all ages.
+                </p>
+            </section>
+
+            <section id="availability">
+                <h3>Availability Information</h3>
+                <table>
+                    <caption>Current Library Inventory</caption>
+                    <thead>
+                        <tr>
+                            <th>Location</th>
+                            <th>Call Number</th>
+                            <th>Total Copies</th>
+                            <th>Available Copies</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Main Collection</td>
+                            <td>FIC LEE</td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td><span style="color: green;">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>Large Print Collection</td>
+                            <td>LP FIC LEE</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td><span style="color: green;">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>Young Adult Section</td>
+                            <td>YA FIC LEE</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td><span style="color: red;">Checked Out</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>Total Available:</strong> 3 of 5 copies</p>
+                <p><strong>Next Available:</strong> Expected return date - <time datetime="2024-11-15">November 15, 2024</time></p>
+            </section>
+
+            <section id="reserve-book">
+                <h3>Reserve This Book</h3>
+                <p>This book is currently available for checkout. Reserve your copy now!</p>
+
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Book Reservation</legend>
+
+                        <input type="hidden" name="book-id" value="book-001">
+                        <input type="hidden" name="book-title" value="To Kill a Mockingbird">
+                        <input type="hidden" name="book-isbn" value="978-0-06-112008-4">
+
+                        <label for="library-card">Library Card Number:</label>
+                        <input type="text" id="library-card" name="library-card" required
+                               placeholder="Enter your library card number"
+                               pattern="[0-9]{10}"
+                               title="Please enter your 10-digit library card number">
+
+                        <label for="pin">PIN:</label>
+                        <input type="password" id="pin" name="pin" required
+                               placeholder="Enter your 4-digit PIN"
+                               pattern="[0-9]{4}"
+                               title="Please enter your 4-digit PIN">
+
+                        <label for="pickup-location">Preferred Pickup Location:</label>
+                        <select id="pickup-location" name="pickup-location" required>
+                            <option value="">Select a location</option>
+                            <option value="main-desk">Main Circulation Desk</option>
+                            <option value="quick-pickup">Quick Pickup Counter</option>
+                            <option value="holds-shelf">Holds Shelf</option>
+                        </select>
+
+                        <label for="hold-until">Hold Until Date:</label>
+                        <input type="date" id="hold-until" name="hold-until"
+                               min="2024-11-01" max="2024-12-31"
+                               title="How long should we hold this book for you?">
+
+                        <fieldset>
+                            <legend>Notification Preferences</legend>
+                            <input type="checkbox" id="email-notify" name="notifications" value="email" checked>
+                            <label for="email-notify">Email notification when ready</label>
+
+                            <input type="checkbox" id="text-notify" name="notifications" value="text">
+                            <label for="text-notify">Text message notification</label>
+
+                            <input type="checkbox" id="phone-notify" name="notifications" value="phone">
+                            <label for="phone-notify">Phone call notification</label>
+                        </fieldset>
+
+                        <button type="submit">Reserve This Book</button>
+                    </fieldset>
+                </form>
+
+                <aside>
+                    <h4>Reservation Information</h4>
+                    <ul>
+                        <li>Books are held for 7 days after notification</li>
+                        <li>You must have a valid library card to reserve books</li>
+                        <li>Maximum of 5 books can be reserved at one time</li>
+                        <li>You will be notified when your book is ready for pickup</li>
+                        <li>Reserved books must be picked up during library hours</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section id="reviews-awards">
+                <h3>Critical Reception & Awards</h3>
+                <blockquote cite="https://www.pulitzer.org/winners/harper-lee">
+                    <p>"A novel of great power and beauty that captures the complexity of human nature and the American South."</p>
+                    <footer>— <cite>The Pulitzer Prize Committee, 1961</cite></footer>
+                </blockquote>
+
+                <h4>Awards and Recognition:</h4>
+                <ul>
+                    <li>Pulitzer Prize for Fiction (1961)</li>
+                    <li>Alabama Author Award (1961)</li>
+                    <li>Presidential Medal of Freedom for Harper Lee (2007)</li>
+                    <li>Named one of the best novels of the 20th century by numerous publications</li>
+                </ul>
+            </section>
+
+            <section id="related-books">
+                <h3>If You Liked This Book</h3>
+                <p>You might also enjoy these similar titles from our collection:</p>
+                <ul>
+                    <li><a href="#">Go Set a Watchman by Harper Lee</a> - Available</li>
+                    <li><a href="#">The Help by Kathryn Stockett</a> - Available</li>
+                    <li><a href="#">The Color Purple by Alice Walker</a> - Checked Out</li>
+                    <li><a href="#">Their Eyes Were Watching God by Zora Neale Hurston</a> - Available</li>
+                    <li><a href="#">Beloved by Toni Morrison</a> - Limited Availability</li>
+                </ul>
+            </section>
+        </article>
+
+        <nav aria-label="Book navigation">
+            <ul>
+                <li><a href="catalog.html">← Back to Catalog</a></li>
+                <li><a href="#" rel="prev">← Previous Book</a></li>
+                <li><a href="#" rel="next">Next Book →</a></li>
+            </ul>
+        </nav>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+        <p>&copy; 2024 Vallejo Public Library. All rights reserved.</p>
+        <p><a href="index.html">Return to Home</a> | <a href="catalog.html">Browse Catalog</a> | <a href="mailto:info@vallejolibrary.org">Contact Us</a></p>
+        <p>Need help? Call us at (707) 648-4386 or visit the reference desk.</p>
+        </div>
+    </footer>
+</body>
+</html>
