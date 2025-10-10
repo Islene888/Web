@@ -458,3 +458,125 @@ footer a:hover {
         border: 2px solid var(--text-dark);
     }
 }
+
+/* Book Detail Page Specific Styles */
+article header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+    color: var(--white);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-xl);
+}
+
+article header h2 {
+    color: var(--white);
+    margin-bottom: var(--spacing-xs);
+    font-size: var(--font-size-h1);
+}
+
+article header p {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Book sections spacing */
+#book-info, #book-summary, #availability, #reserve-book {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Availability section styling */
+#availability {
+    background-color: var(--neutral-gray);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--secondary-green);
+}
+
+#availability p {
+    margin-bottom: var(--spacing-xs);
+}
+
+#availability p:first-child {
+    font-weight: 600;
+    color: var(--secondary-green);
+    font-size: 1.1rem;
+}
+
+/* Reserve book section */
+#reserve-book {
+    background-color: var(--neutral-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 2px solid var(--primary-blue);
+}
+
+#reserve-book h3 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-blue);
+}
+
+/* Notification preferences styling */
+.notification-preferences {
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.notification-preferences h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+}
+
+.notification-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid #eee;
+}
+
+.notification-option:last-child {
+    border-bottom: none;
+}
+
+.notification-option label {
+    margin: 0;
+    font-weight: normal;
+    flex-grow: 1;
+}
+
+.notification-option input[type="checkbox"] {
+    width: auto;
+    margin-left: var(--spacing-sm);
+}
+
+/* Reserve button styling */
+.reserve-button {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: var(--spacing-lg) auto 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--accent-gold);
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reserve-button:hover {
+    background-color: #c19660;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

@@ -160,19 +160,23 @@
                                min="2024-11-01" max="2024-12-31"
                                title="How long should we hold this book for you?">
 
-                        <fieldset>
-                            <legend>Notification Preferences</legend>
-                            <input type="checkbox" id="email-notify" name="notifications" value="email" checked>
-                            <label for="email-notify">Email notification when ready</label>
+                        <div class="notification-preferences">
+                            <h4>Notification Preferences</h4>
+                            <div class="notification-option">
+                                <label for="email-notify">Email notification when ready</label>
+                                <input type="checkbox" id="email-notify" name="notifications" value="email" checked>
+                            </div>
+                            <div class="notification-option">
+                                <label for="text-notify">Text message notification</label>
+                                <input type="checkbox" id="text-notify" name="notifications" value="text">
+                            </div>
+                            <div class="notification-option">
+                                <label for="phone-notify">Phone call notification</label>
+                                <input type="checkbox" id="phone-notify" name="notifications" value="phone">
+                            </div>
+                        </div>
 
-                            <input type="checkbox" id="text-notify" name="notifications" value="text">
-                            <label for="text-notify">Text message notification</label>
-
-                            <input type="checkbox" id="phone-notify" name="notifications" value="phone">
-                            <label for="phone-notify">Phone call notification</label>
-                        </fieldset>
-
-                        <button type="submit">Reserve This Book</button>
+                        <button type="submit" class="reserve-button">Reserve This Book</button>
                     </fieldset>
                 </form>
 
