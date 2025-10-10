@@ -1,175 +1,175 @@
 # Homework 4: Responsive Vallejo Public Library Website
 
-## 项目概述
-这是瓦列霍公共图书馆的响应式网站实现，基于作业2的HTML结构和作业3的设计文档创建。网站完全响应式，支持手机、平板和桌面设备。
+## Project Overview
+This is a responsive website implementation for the Vallejo Public Library, built upon the HTML structure from Assignment 2 and the design specifications from Assignment 3. The website is fully responsive and supports mobile, tablet, and desktop devices.
 
-## 文件结构
+## File Structure
 ```
 homework4/
-├── README.md                    # 项目说明文档
-└── responsive_website/          # 响应式网站文件
-    ├── index.html              # 主页 (必须文件)
-    ├── catalog.html            # 图书目录页面
-    ├── book_detail.html        # 图书详情页面
-    └── styles.css              # 统一的响应式CSS文件
+├── README.md                    # Project documentation
+└── responsive_website/          # Responsive website files
+    ├── index.html              # Homepage (required file)
+    ├── catalog.html            # Book catalog page
+    ├── book_detail.html        # Book details page
+    └── styles.css              # Unified responsive CSS file
 ```
 
-## 功能特性
+## Features
 
-### HTML页面功能
-1. **index.html (主页)**
-   - 图书馆地址和开放时间
-   - 图书证申请表单
-   - 联系信息
-   - 最新消息部分
-   - 图书馆服务列表
+### HTML Page Functionality
+1. **index.html (Homepage)**
+   - Library address and opening hours
+   - Library card application form
+   - Contact information
+   - Latest news section
+   - Library services list
 
-2. **catalog.html (图书目录)**
-   - 图书搜索功能
-   - 按类别和可用性筛选
-   - 完整的图书列表
-   - 图书可用性状态
+2. **catalog.html (Book Catalog)**
+   - Book search functionality
+   - Category and availability filtering
+   - Complete book listing
+   - Book availability status
 
-3. **book_detail.html (图书详情)**
-   - 完整的图书信息
-   - 库存数量和可用性
-   - 图书预订表单
+3. **book_detail.html (Book Details)**
+   - Complete book information
+   - Stock quantity and availability
+   - Book reservation form
 
-### 响应式设计特性
+### Responsive Design Features
 
-#### 移动设备 (< 768px)
-- 单列布局
-- 垂直导航菜单
-- 适配触摸屏的按钮大小
-- 16px字体防止iOS缩放
-- 优化的表格显示
+#### Mobile Devices (< 768px)
+- Single column layout
+- Vertical navigation menu
+- Touch-optimized button sizes
+- 16px font size to prevent iOS zoom
+- Optimized table display
 
-#### 平板设备 (768px - 1023px)
-- 双列网格布局
-- 水平导航菜单
-- 适中的字体大小
-- 平衡的间距
+#### Tablet Devices (768px - 1023px)
+- Two-column grid layout
+- Horizontal navigation menu
+- Moderate font sizes
+- Balanced spacing
 
-#### 桌面设备 (≥ 1024px)
-- 三列网格布局
-- 增强的悬停效果
-- 大字体和宽松布局
-- 专业的设计风格
+#### Desktop Devices (≥ 1024px)
+- Three-column grid layout
+- Enhanced hover effects
+- Large fonts and spacious layout
+- Professional design aesthetic
 
-#### 大屏幕设备 (≥ 1440px)
-- 最大容器宽度1400px
-- 更大的字体和间距
-- 优化的大屏体验
+#### Large Screen Devices (≥ 1440px)
+- Maximum container width of 1400px
+- Larger fonts and spacing
+- Optimized large screen experience
 
-## 设计实现
+## Design Implementation
 
-### 颜色方案 (基于作业3设计文档)
-- **主色调蓝色**: #2E5A87 (头部、导航、主要按钮)
-- **次要绿色**: #4A7C59 (链接、成功状态、次要元素)
-- **强调金色**: #D4A574 (重点按钮、高亮、行动号召)
-- **中性灰色**: #F5F5F5 (背景、卡片容器、分隔线)
-- **深色文字**: #333333 (所有正文文字)
+### Color Scheme (Based on Assignment 3 Design Document)
+- **Primary Blue**: #2E5A87 (Headers, navigation, primary buttons)
+- **Secondary Green**: #4A7C59 (Links, success states, secondary elements)
+- **Accent Gold**: #D4A574 (Accent buttons, highlights, call-to-action)
+- **Neutral Gray**: #F5F5F5 (Backgrounds, card containers, dividers)
+- **Dark Text**: #333333 (All body text)
 
-### 字体设计 (Google Fonts)
-- **主字体**: Open Sans (正文、表单、按钮)
-- **标题字体**: Merriweather (标题、重点文字)
-- **字体层级**:
-  - H1: 2.5rem (移动端2rem)
-  - H2: 2rem (移动端1.5rem)
-  - H3: 1.5rem (移动端1.25rem)
-  - 正文: 1rem
+### Typography Design (Google Fonts)
+- **Primary Font**: Open Sans (Body text, forms, buttons)
+- **Heading Font**: Merriweather (Headings, emphasis text)
+- **Font Hierarchy**:
+  - H1: 2.5rem (2rem on mobile)
+  - H2: 2rem (1.5rem on mobile)
+  - H3: 1.5rem (1.25rem on mobile)
+  - Body: 1rem
 
-### 可访问性特性
-- WCAG AA级对比度标准 (≥4.5:1)
-- 语义化HTML结构
-- 键盘导航支持
-- 高对比度模式支持
-- 减少动画模式支持
-- 适合6-90岁用户的可读性
+### Accessibility Features
+- WCAG AA contrast standards (≥4.5:1)
+- Semantic HTML structure
+- Keyboard navigation support
+- High contrast mode support
+- Reduced motion mode support
+- Readable for ages 6-90
 
-## 技术实现
+## Technical Implementation
 
-### CSS特性
-- CSS自定义属性 (CSS Variables)
-- Flexbox和Grid布局
-- 移动优先的响应式设计
-- 平滑过渡和悬停效果
-- 打印样式优化
+### CSS Features
+- CSS Custom Properties (CSS Variables)
+- Flexbox and Grid layouts
+- Mobile-first responsive design
+- Smooth transitions and hover effects
+- Print style optimization
 
-### 浏览器兼容性
-- 现代浏览器全面支持
-- 渐进式增强设计
-- 优雅降级处理
+### Browser Compatibility
+- Full support for modern browsers
+- Progressive enhancement design
+- Graceful degradation handling
 
-## 测试说明
+## Testing Documentation
 
-### 设备测试
+### Device Testing
 ✅ iPhone (375px)
-✅ Android手机 (360px)
+✅ Android phones (360px)
 ✅ iPad (768px)
-✅ 小型笔记本 (1024px)
-✅ 桌面显示器 (1440px)
-✅ 大屏显示器 (1920px+)
+✅ Small laptops (1024px)
+✅ Desktop monitors (1440px)
+✅ Large displays (1920px+)
 
-### 功能测试
-✅ 所有导航链接正常工作
-✅ 表单元素响应正确
-✅ 图片和内容不变形
-✅ 文字在所有设备上可读
-✅ 触摸目标足够大 (44px+)
+### Functionality Testing
+✅ All navigation links work properly
+✅ Form elements respond correctly
+✅ Images and content don't distort
+✅ Text is readable on all devices
+✅ Touch targets are adequate (44px+)
 
-## 使用说明
+## Usage Instructions
 
-1. **本地预览**:
+1. **Local Preview**:
    ```bash
    cd homework4/responsive_website
-   # 在浏览器中打开 index.html
+   # Open index.html in your browser
    ```
 
-2. **测试响应性**:
-   - 在浏览器开发者工具中切换设备
-   - 或调整浏览器窗口大小
-   - 测试所有三个页面
+2. **Testing Responsiveness**:
+   - Use browser developer tools to switch devices
+   - Or resize the browser window
+   - Test all three pages
 
-3. **验证导航**:
-   - 点击所有导航链接
-   - 确保页面间正常跳转
-   - 测试表单提交（虽然不会实际处理）
+3. **Verify Navigation**:
+   - Click all navigation links
+   - Ensure proper page transitions
+   - Test form submissions (though they won't actually process)
 
-## 符合作业要求
+## Assignment Requirements Compliance
 
-### ✅ HTML要求
-- [x] 三个HTML文件 (index.html, catalog.html, book_detail.html)
-- [x] 基于作业2的HTML结构
-- [x] 语义化HTML标签
-- [x] 所有必需的内容和功能
+### ✅ HTML Requirements
+- [x] Three HTML files (index.html, catalog.html, book_detail.html)
+- [x] Based on Assignment 2 HTML structure
+- [x] Semantic HTML tags
+- [x] All required content and functionality
 
-### ✅ CSS要求
-- [x] 单一CSS文件控制所有页面
-- [x] 基于作业3的设计方案
-- [x] 至少三种响应式断点
-- [x] 专业质量的视觉设计
+### ✅ CSS Requirements
+- [x] Single CSS file controlling all pages
+- [x] Based on Assignment 3 design specifications
+- [x] At least three responsive breakpoints
+- [x] Professional quality visual design
 
-### ✅ 响应式要求
-- [x] 移动设备优化 (<768px)
-- [x] 平板设备优化 (768px-1024px)
-- [x] 桌面设备优化 (>1024px)
-- [x] 所有尺寸下内容可读且功能正常
+### ✅ Responsive Requirements
+- [x] Mobile device optimization (<768px)
+- [x] Tablet device optimization (768px-1024px)
+- [x] Desktop device optimization (>1024px)
+- [x] Content readable and functional at all sizes
 
-### ✅ 技术要求
-- [x] 无拼写错误
-- [x] 所有链接正常工作
-- [x] 无损坏的导航
-- [x] 图片和内容不变形
-- [x] 使用开源资源和字体
+### ✅ Technical Requirements
+- [x] No spelling errors
+- [x] All links work properly
+- [x] No broken navigation
+- [x] Images and content don't distort
+- [x] Uses open source resources and fonts
 
-## 版权说明
-- **字体**: Google Fonts (Open Sans, Merriweather) - 开源许可
-- **内容**: 原创编写，符合图书馆网站需求
-- **代码**: 原创实现，遵循最佳实践
+## Copyright Notice
+- **Fonts**: Google Fonts (Open Sans, Merriweather) - Open source license
+- **Content**: Original writing, appropriate for library website needs
+- **Code**: Original implementation, following best practices
 
 ---
 
-**作业完成状态**: ✅ 完成
-**最后更新**: 2024年10月10日
-**作者**: Ella
+**Assignment Status**: ✅ Complete
+**Last Updated**: October 10, 2024
+**Author**: Ella
