@@ -127,6 +127,7 @@ nav a {
 
 nav a:hover, nav a:focus {
     background-color: rgba(255, 255, 255, 0.2);
+    color: var(--white);
     text-decoration: none;
 }
 
@@ -526,6 +527,7 @@ article header p {
     border: 1px solid #ddd;
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
+    margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-md);
 }
 
@@ -579,4 +581,43 @@ article header p {
     background-color: #c19660;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Reservation Information section spacing */
+#reserve-book aside {
+    margin-top: var(--spacing-xl);
+    background-color: var(--white);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+}
+
+/* Awards and Recognition section spacing */
+#reviews-awards {
+    margin-top: var(--spacing-xl);
+    background-color: var(--neutral-gray);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-gold);
+}
+
+/* Status color classes for book availability */
+.status-available {
+    color: #4A7C59;
+    font-weight: 600;
+}
+
+.status-limited {
+    color: #D4A574;
+    font-weight: 600;
+}
+
+.status-unavailable {
+    color: #CC5500;
+    font-weight: 600;
+}
+
+.status-checked-out {
+    color: #CC5500;
+    font-weight: 600;
 }
