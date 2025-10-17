@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Layout Exercise</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .wrapper { display: flex; max-width: 1200px; margin: 0 auto; gap: 30px; padding: 20px; }
+        .main-content { flex: 3; }
+        .side-content { flex: 1; background: #f9f9f9; padding: 20px; border-radius: 8px; }
+        .article-heading { font-size: 36px; margin-bottom: 10px; }
+        .article-info { color: #666; margin-bottom: 20px; font-style: italic; }
+        .content-section { margin-bottom: 20px; }
+        .section-heading { font-size: 24px; margin-bottom: 10px; }
+        .sidebar-title { font-size: 20px; margin-bottom: 15px; font-weight: bold; }
+        .related-item { margin-bottom: 10px; padding: 10px; background: white; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <main class="main-content">
+            <article>
+                <header>
+                    <h1 class="article-heading">The Future of Renewable Energy</h1>
+                    <time class="article-info" datetime="2024-04-02">Published on April 2, 2024</time>
+                </header>
+
+                <section class="content-section">
+                    <h2 class="section-heading">Introduction</h2>
+                    <p>
+                        Renewable energy sources are becoming increasingly important as we work to combat climate change and reduce our dependence on fossil fuels. Solar, wind, and hydroelectric power are leading the charge toward a more sustainable future.
+                    </p>
+                </section>
+
+                <section class="content-section">
+                    <h2 class="section-heading">Current Trends</h2>
+                    <p>
+                        The cost of solar panels has decreased dramatically over the past decade, making solar energy more accessible to homeowners and businesses. Wind farms are being built offshore to capture stronger and more consistent winds.
+                    </p>
+                </section>
+            </article>
+        </main>
+
+        <aside class="side-content">
+            <h3 class="sidebar-title">Related Articles</h3>
+            <nav>
+                <ul>
+                    <li><a href="#" class="related-item">Solar Energy Basics</a></li>
+                    <li><a href="#" class="related-item">Wind Power Innovation</a></li>
+                    <li><a href="#" class="related-item">Battery Storage Solutions</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</body>
+</html>

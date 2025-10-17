@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Service Registration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>🍕 Pizza Service Registration</h1>
+            <p>Register for our service and get a free pizza delivered to you!</p>
+        </header>
+
+        <form id="registrationForm" novalidate>
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">
+                        Full Name <span class="required" aria-label="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        minlength="3"
+                        aria-describedby="name-error"
+                        autocomplete="name"
+                    >
+                    <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+
+                <!-- Year of Birth Field -->
+                <div class="form-group">
+                    <label for="birthYear">
+                        Year of Birth <span class="required" aria-label="required">*</span>
+                    </label>
+                    <input
+                        type="number"
+                        id="birthYear"
+                        name="birthYear"
+                        required
+                        min="1901"
+                        max="2024"
+                        aria-describedby="birthYear-error"
+                        autocomplete="bday-year"
+                    >
+                    <div id="birthYear-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Location Information</legend>
+
+                <!-- US Residence Checkbox -->
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input
+                            type="checkbox"
+                            id="usResident"
+                            name="usResident"
+                            aria-describedby="usResident-help"
+                        >
+                        <label for="usResident">Do you live in the United States?</label>
+                    </div>
+                    <small id="usResident-help" class="help-text">
+                        This helps us determine delivery options
+                    </small>
+                </div>
+
+                <!-- Zipcode Field (conditionally shown) -->
+                <div class="form-group" id="zipcodeGroup" style="display: none;">
+                    <label for="zipcode">
+                        ZIP Code <span class="required" aria-label="required">*</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="zipcode"
+                        name="zipcode"
+                        pattern="[0-9]{5}"
+                        maxlength="5"
+                        aria-describedby="zipcode-error zipcode-help"
+                        autocomplete="postal-code"
+                        placeholder="12345"
+                    >
+                    <small id="zipcode-help" class="help-text">5-digit ZIP code</small>
+                    <div id="zipcode-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Account Security</legend>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">
+                        Password <span class="required" aria-label="required">*</span>
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        minlength="8"
+                        aria-describedby="password-error password-help"
+                        autocomplete="new-password"
+                    >
+                    <small id="password-help" class="help-text">At least 8 characters</small>
+                    <div id="password-error" class="error-message" role="alert" aria-live="polite"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Pizza Preferences</legend>
+
+                <!-- Pizza Type Radio Buttons -->
+                <div class="form-group">
+                    <fieldset class="radio-fieldset">
+                        <legend>Preferred type of pizza <span class="required" aria-label="required">*</span></legend>
+
+                        <div class="radio-group">
+                            <input
+                                type="radio"
+                                id="withPineapple"
+                                name="pizzaType"
+                                value="with-pineapple"
+                                required
+                            >
+                            <label for="withPineapple">🍍 With pineapple</label>
+                        </div>
+
+                        <div class="radio-group">
+                            <input
+                                type="radio"
+                                id="withoutPineapple"
+                                name="pizzaType"
+                                value="without-pineapple"
+                                required
+                            >
+                            <label for="withoutPineapple">🍕 Without pineapple</label>
+                        </div>
+
+                        <div class="radio-group">
+                            <input
+                                type="radio"
+                                id="noLikePizza"
+                                name="pizzaType"
+                                value="no-like-pizza"
+                                required
+                            >
+                            <label for="noLikePizza">❌ I do not like pizza</label>
+                        </div>
+
+                        <div id="pizzaType-error" class="error-message" role="alert" aria-live="polite"></div>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <!-- Submit Button -->
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">
+                    Register for Pizza Service
+                </button>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message" style="display: none;" role="alert" aria-live="polite">
+                <h2>✅ Registration Accepted!</h2>
+                <p>Thank you for registering! Your pizza will be delivered soon.</p>
+            </div>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
