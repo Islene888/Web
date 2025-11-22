@@ -1,0 +1,43 @@
+{
+  "name": "cat-facts-explorer-typescript",
+  "version": "1.0.0",
+  "description": "作业6：猫咪事实探索器 - TypeScript版本。使用Cat Facts API展示随机猫咪事实的互动网页应用，增加了TypeScript类型安全。",
+  "main": "dist/script.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "clean": "rimraf dist",
+    "dev": "tsc --watch",
+    "compile": "tsc && echo 'TypeScript编译完成！'",
+    "start": "npm run compile && echo '请打开 index-ts.html 查看TypeScript版本'"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "web",
+    "api",
+    "cat-facts",
+    "html5",
+    "css3",
+    "rest-api",
+    "homework",
+    "frontend"
+  ],
+  "author": "Ella",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "本地作业项目"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

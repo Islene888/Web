@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--
+作业6：猫咪事实探索器
+使用Cat Facts API展示随机猫咪事实的互动网页应用
+学生：Ella
+-->
+<html lang="en">
+<head>
+    <!-- 文档字符编码声明，确保中文等特殊字符正常显示 -->
+    <meta charset="UTF-8">
+    <!-- 响应式设计：确保在移动设备上正确显示 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 页面标题，显示在浏览器标签页 -->
+    <title>Cat Facts Explorer</title>
+    <!-- 链接外部CSS样式文件 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 页面头部：使用语义化标签header -->
+    <header>
+        <!-- 主标题：使用h1标签，SEO友好 -->
+        <h1>🐱 Cat Facts Explorer</h1>
+        <!-- 副标题：描述网站功能 -->
+        <p>Discover fascinating facts about our feline friends</p>
+    </header>
+
+    <!-- 主要内容区域：使用语义化标签main -->
+    <main>
+        <!-- 控制区域：包含所有操作按钮 -->
+        <section class="facts-section">
+            <!-- 区域标题 -->
+            <h2>Random Cat Facts</h2>
+            <!-- 按钮控制组 -->
+            <div class="controls">
+                <!-- 获取单个事实按钮：id用于JavaScript绑定事件 -->
+                <button id="getFactBtn" class="primary-btn">Get Random Cat Fact</button>
+                <!-- 获取多个事实按钮：批量获取功能 -->
+                <button id="getMultipleBtn" class="secondary-btn">Get 5 Random Facts</button>
+                <!-- 清除所有事实按钮：重置功能 -->
+                <button id="clearBtn" class="clear-btn">Clear All Facts</button>
+            </div>
+
+            <!-- 加载状态提示：初始隐藏，API请求时显示 -->
+            <div id="loading" class="loading hidden">
+                <div class="loader"></div> <!-- CSS动画加载圈 -->
+                <p>Fetching cat facts...</p>
+            </div>
+
+            <!-- 错误状态提示：网络或API错误时显示 -->
+            <div id="error" class="error hidden">
+                <p>Oops! Failed to fetch cat facts. Please try again.</p>
+            </div>
+        </section>
+
+        <!-- 事实显示区域：动态添加猫咪事实卡片 -->
+        <section class="facts-display">
+            <!-- 事实容器：JavaScript会在这里添加新的事实卡片 -->
+            <div id="factsContainer" class="facts-container">
+                <!-- 欢迎消息：初始显示，获取事实后会被替换 -->
+                <div class="welcome-message">
+                    <h3>Welcome to Cat Facts Explorer!</h3>
+                    <p>Click the button above to discover amazing facts about cats.</p>
+                    <div class="cat-emoji">🐈</div> <!-- 动画猫咪表情 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 统计信息区域：显示会话统计数据 -->
+        <section class="stats-section">
+            <h3>Session Statistics</h3>
+            <!-- CSS Grid布局：响应式统计卡片 -->
+            <div class="stats-grid">
+                <!-- 总事实数统计 -->
+                <div class="stat-item">
+                    <span class="stat-number" id="totalFacts">0</span> <!-- JavaScript更新数字 -->
+                    <span class="stat-label">Facts Discovered</span>
+                </div>
+                <!-- 最长事实字符数统计 -->
+                <div class="stat-item">
+                    <span class="stat-number" id="longestFact">0</span>
+                    <span class="stat-label">Longest Fact (chars)</span>
+                </div>
+                <!-- 平均长度统计 -->
+                <div class="stat-item">
+                    <span class="stat-number" id="avgLength">0</span>
+                    <span class="stat-label">Average Length</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页面底部：版权信息和API来源 -->
+    <footer>
+        <!-- target="_blank"：在新标签页打开链接 -->
+        <p>&copy; 2024 Cat Facts Explorer | Data provided by <a href="https://catfact.ninja/" target="_blank">Cat Fact API</a></p>
+    </footer>
+
+    <!-- 引入JavaScript文件：放在body底部确保DOM加载完成 -->
+    <script src="script.js"></script>
+</body>
+</html>

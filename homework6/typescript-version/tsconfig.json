@@ -1,0 +1,66 @@
+{
+  "compilerOptions": {
+    /* 基础选项 */
+    "target": "ES2018",                    /* 编译目标版本 - 支持async/await */
+    "module": "ESNext",                    /* 模块系统 */
+    "lib": ["ES2018", "DOM"],             /* 包含的库文件 - ES2018功能 + DOM API */
+    "outDir": "./dist",                    /* 输出目录 */
+    "rootDir": "./",                       /* 根目录 */
+
+    /* 模块解析选项 */
+    "moduleResolution": "node",            /* 模块解析策略 */
+    "esModuleInterop": true,              /* 允许ES模块互操作 */
+    "allowSyntheticDefaultImports": true,  /* 允许合成默认导入 */
+    "forceConsistentCasingInFileNames": true, /* 强制文件名大小写一致 */
+
+    /* 严格类型检查选项 */
+    "strict": true,                        /* 启用所有严格类型检查选项 */
+    "noImplicitAny": true,                /* 不允许隐式any类型 */
+    "noImplicitReturns": true,            /* 不允许函数没有返回值 */
+    "noImplicitThis": true,               /* 不允许this有隐式any类型 */
+    "strictNullChecks": true,             /* 严格null检查 */
+    "strictFunctionTypes": true,          /* 严格函数类型检查 */
+
+    /* 额外的检查选项 */
+    "noUnusedLocals": true,               /* 不允许未使用的局部变量 */
+    "noUnusedParameters": true,           /* 不允许未使用的参数 */
+    "noFallthroughCasesInSwitch": true,   /* switch语句fall-through检查 */
+    "noUncheckedIndexedAccess": false,    /* 索引访问检查(对DOM操作较宽松) */
+
+    /* 源映射和调试 */
+    "sourceMap": true,                     /* 生成源映射文件 */
+    "inlineSourceMap": false,             /* 不使用内联源映射 */
+    "declaration": false,                 /* 不生成声明文件 */
+    "removeComments": false,              /* 保留注释 */
+
+    /* 实验性功能 */
+    "experimentalDecorators": true,       /* 启用装饰器实验性功能 */
+    "emitDecoratorMetadata": true,        /* 为装饰器发出元数据 */
+
+    /* 高级选项 */
+    "skipLibCheck": true,                 /* 跳过库文件类型检查(提高编译速度) */
+    "resolveJsonModule": true,            /* 允许导入JSON模块 */
+    "allowJs": true,                      /* 允许编译JS文件 */
+    "checkJs": false                      /* 不检查JS文件类型 */
+  },
+
+  /* 包含和排除选项 */
+  "include": [
+    "script.ts",                          /* 包含TypeScript源文件 */
+    "*.d.ts"                             /* 包含类型声明文件 */
+  ],
+
+  "exclude": [
+    "node_modules",                       /* 排除node_modules */
+    "dist",                              /* 排除编译输出目录 */
+    "script.js"                          /* 排除原JavaScript文件 */
+  ],
+
+  /* 编译选项 */
+  "compileOnSave": false,                /* 保存时不自动编译 */
+
+  /* TypeScript 4.0+ 选项 */
+  "ts-node": {
+    "esm": true                          /* 支持ES模块 */
+  }
+}

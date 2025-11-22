@@ -1,0 +1,207 @@
+/*
+ * 作业6：猫咪事实探索器 - TypeScript版本样式表
+ * 在原有样式基础上增加TypeScript版本的特殊样式
+ * 学生：Ella
+ */
+
+/* 导入基础样式 */
+@import 'styles.css';
+
+/* ============================
+   TypeScript版本特殊样式
+   ============================ */
+
+/* 技术信息展示区域 */
+.tech-info {
+    background: linear-gradient(135deg, #007acc 0%, #0056b3 100%); /* TypeScript蓝色主题 */
+    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 20px rgba(0, 122, 204, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 技术徽章样式 */
+.tech-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.tech-label {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tech-stack {
+    background: rgba(255, 255, 255, 0.9);
+    color: #007acc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* 功能列表样式 */
+.features-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* TypeScript版本标题特殊样式 */
+header h1 {
+    background: linear-gradient(45deg, #007acc, #40e0d0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 增强的欢迎消息 - TypeScript版本 */
+.welcome-message h3 {
+    background: linear-gradient(45deg, #007acc, #0056b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* TypeScript主题的按钮增强 */
+.primary-btn {
+    background: linear-gradient(45deg, #007acc, #0056b3);
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn::before {
+    content: 'TS';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #40e0d0;
+    color: #007acc;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+/* 加载文字增强 - TypeScript版本 */
+.loading p {
+    background: linear-gradient(45deg, #007acc, #40e0d0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 事实卡片TypeScript主题增强 */
+.fact-card {
+    position: relative;
+    border-left: 4px solid #007acc;
+}
+
+.fact-card::after {
+    content: 'TypeScript';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 122, 204, 0.1);
+    color: #007acc;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+/* 统计卡片TypeScript主题 */
+.stat-item:first-child {
+    background: linear-gradient(135deg, #007acc 0%, #0056b3 100%);
+}
+
+/* TypeScript代码样式提示 */
+.type-hint {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    background: rgba(0, 122, 204, 0.1);
+    color: #007acc;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(0, 122, 204, 0.2);
+}
+
+/* 响应式设计增强 - TypeScript版本 */
+@media (max-width: 768px) {
+    .tech-info {
+        padding: 1rem;
+    }
+
+    .features-list {
+        gap: 0.5rem;
+    }
+
+    .feature {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .tech-badge {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-stack {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    .features-list {
+        justify-content: center;
+    }
+}
+
+/* TypeScript编译动画 */
+@keyframes typescript-compile {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 编译成功提示动画 */
+.compile-success {
+    animation: typescript-compile 3s ease infinite;
+    background: linear-gradient(-45deg, #007acc, #40e0d0, #007acc, #0056b3);
+    background-size: 400% 400%;
+}
