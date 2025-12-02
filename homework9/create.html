@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Movie - Movie Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="create.html" class="active">Add New Movie</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Add a New Movie</h2>
+            <p>Fill in the details below to add a new movie to the collection.</p>
+
+            <form id="movie-form" novalidate>
+                <div class="form-group">
+                    <label for="title">Movie Title <span class="required">*</span></label>
+                    <input type="text" id="title" name="title" required minlength="1" maxlength="100"
+                           placeholder="Enter movie title">
+                    <span class="error-message" id="title-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="director">Director <span class="required">*</span></label>
+                    <input type="text" id="director" name="director" required minlength="2" maxlength="100"
+                           placeholder="Enter director name">
+                    <span class="error-message" id="director-error"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="year">Release Year <span class="required">*</span></label>
+                        <input type="number" id="year" name="year" required min="1888" max="2030"
+                               placeholder="e.g., 2024">
+                        <span class="error-message" id="year-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Duration (minutes) <span class="required">*</span></label>
+                        <input type="number" id="duration" name="duration" required min="1" max="1000"
+                               placeholder="e.g., 120">
+                        <span class="error-message" id="duration-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="genre">Genre <span class="required">*</span></label>
+                        <select id="genre" name="genre" required>
+                            <option value="">Select a genre</option>
+                            <option value="Action">Action</option>
+                            <option value="Adventure">Adventure</option>
+                            <option value="Animation">Animation</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Crime">Crime</option>
+                            <option value="Documentary">Documentary</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Fantasy">Fantasy</option>
+                            <option value="Horror">Horror</option>
+                            <option value="Musical">Musical</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Sci-Fi">Sci-Fi</option>
+                            <option value="Thriller">Thriller</option>
+                            <option value="War">War</option>
+                            <option value="Western">Western</option>
+                        </select>
+                        <span class="error-message" id="genre-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rating">Rating (1-10) <span class="required">*</span></label>
+                        <input type="number" id="rating" name="rating" required min="1" max="10" step="0.1"
+                               placeholder="e.g., 8.5">
+                        <span class="error-message" id="rating-error"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description <span class="required">*</span></label>
+                    <textarea id="description" name="description" required minlength="10" maxlength="500"
+                              rows="4" placeholder="Enter a brief description of the movie"></textarea>
+                    <span class="error-message" id="description-error"></span>
+                    <span class="char-count"><span id="char-count">0</span>/500</span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">Add Movie</button>
+                    <button type="reset" class="btn btn-secondary">Clear Form</button>
+                </div>
+            </form>
+
+            <div id="success-message" class="success-message hidden">
+                <p>Movie added successfully!</p>
+                <a href="index.html" class="btn btn-primary">View All Movies</a>
+            </div>
+
+            <div id="submit-error" class="error hidden">
+                <p>Failed to add movie. Please try again.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Movie Collection App - Homework 8</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        const form = document.getElementById('movie-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successMessage = document.getElementById('success-message');
+        const submitError = document.getElementById('submit-error');
+        const descriptionInput = document.getElementById('description');
+        const charCount = document.getElementById('char-count');
+
+        // Update character count for description
+        descriptionInput.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+
+        // Form validation
+        function validateField(field) {
+            const errorElement = document.getElementById(`${field.name}-error`);
+            let isValid = true;
+            let errorMessage = '';
+
+            // Clear previous error
+            field.classList.remove('invalid');
+            if (errorElement) errorElement.textContent = '';
+
+            // Check required
+            if (field.required && !field.value.trim()) {
+                isValid = false;
+                errorMessage = 'This field is required.';
+            }
+
+            // Check specific validations
+            if (isValid && field.value.trim()) {
+                switch (field.name) {
+                    case 'title':
+                        if (field.value.length > 100) {
+                            isValid = false;
+                            errorMessage = 'Title must be 100 characters or less.';
+                        }
+                        break;
+
+                    case 'director':
+                        if (field.value.length < 2) {
+                            isValid = false;
+                            errorMessage = 'Director name must be at least 2 characters.';
+                        } else if (field.value.length > 100) {
+                            isValid = false;
+                            errorMessage = 'Director name must be 100 characters or less.';
+                        }
+                        break;
+
+                    case 'year':
+                        const year = parseInt(field.value);
+                        if (isNaN(year) || year < 1888 || year > 2030) {
+                            isValid = false;
+                            errorMessage = 'Year must be between 1888 and 2030.';
+                        }
+                        break;
+
+                    case 'duration':
+                        const duration = parseInt(field.value);
+                        if (isNaN(duration) || duration < 1 || duration > 1000) {
+                            isValid = false;
+                            errorMessage = 'Duration must be between 1 and 1000 minutes.';
+                        }
+                        break;
+
+                    case 'rating':
+                        const rating = parseFloat(field.value);
+                        if (isNaN(rating) || rating < 1 || rating > 10) {
+                            isValid = false;
+                            errorMessage = 'Rating must be between 1 and 10.';
+                        }
+                        break;
+
+                    case 'description':
+                        if (field.value.length < 10) {
+                            isValid = false;
+                            errorMessage = 'Description must be at least 10 characters.';
+                        } else if (field.value.length > 500) {
+                            isValid = false;
+                            errorMessage = 'Description must be 500 characters or less.';
+                        }
+                        break;
+                }
+            }
+
+            if (!isValid) {
+                field.classList.add('invalid');
+                if (errorElement) errorElement.textContent = errorMessage;
+            }
+
+            return isValid;
+        }
+
+        // Validate on blur
+        const fields = form.querySelectorAll('input, select, textarea');
+        fields.forEach(field => {
+            field.addEventListener('blur', () => validateField(field));
+        });
+
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Validate all fields
+            let isFormValid = true;
+            fields.forEach(field => {
+                if (!validateField(field)) {
+                    isFormValid = false;
+                }
+            });
+
+            if (!isFormValid) {
+                return;
+            }
+
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Adding...';
+            submitError.classList.add('hidden');
+
+            // Gather form data
+            const movieData = {
+                title: document.getElementById('title').value.trim(),
+                director: document.getElementById('director').value.trim(),
+                year: document.getElementById('year').value,
+                duration: document.getElementById('duration').value,
+                genre: document.getElementById('genre').value,
+                rating: document.getElementById('rating').value,
+                description: document.getElementById('description').value.trim()
+            };
+
+            try {
+                await createMovie(movieData);
+
+                // Show success message
+                form.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error creating movie:', error);
+                submitError.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Add Movie';
+            }
+        });
+
+        // Reset form
+        form.addEventListener('reset', function() {
+            fields.forEach(field => {
+                field.classList.remove('invalid');
+                const errorElement = document.getElementById(`${field.name}-error`);
+                if (errorElement) errorElement.textContent = '';
+            });
+            charCount.textContent = '0';
+            submitError.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

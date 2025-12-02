@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Collection - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Collection</h1>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="create.html">Add New Movie</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>Browse Movies</h2>
+            <p>Click on any movie to view its details.</p>
+            <a href="create.html" class="btn btn-primary">+ Create New Movie</a>
+        </section>
+
+        <section id="loading" class="loading">
+            <p>Loading movies...</p>
+        </section>
+
+        <section id="error" class="error hidden">
+            <p>Failed to load movies. Please try again later.</p>
+            <button onclick="loadMovies()" class="btn">Retry</button>
+        </section>
+
+        <section id="movies-container" class="movies-grid hidden">
+            <!-- Movies will be dynamically loaded here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>Movie Collection App - Homework 9 (CRUD Complete)</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Load movies when page loads
+        document.addEventListener('DOMContentLoaded', loadMovies);
+
+        async function loadMovies() {
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const containerEl = document.getElementById('movies-container');
+
+            // Show loading, hide others
+            loadingEl.classList.remove('hidden');
+            errorEl.classList.add('hidden');
+            containerEl.classList.add('hidden');
+
+            try {
+                const movies = await fetchMovies();
+                displayMovies(movies);
+
+                loadingEl.classList.add('hidden');
+                containerEl.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading movies:', error);
+                loadingEl.classList.add('hidden');
+                errorEl.classList.remove('hidden');
+            }
+        }
+
+        function displayMovies(movies) {
+            const container = document.getElementById('movies-container');
+
+            if (!movies || movies.length === 0) {
+                container.innerHTML = '<p class="no-movies">No movies found. <a href="create.html">Add your first movie!</a></p>';
+                return;
+            }
+
+            container.innerHTML = movies.map(movie => `
+                <article class="movie-card">
+                    <h3>${escapeHtml(movie.title)}</h3>
+                    <p class="movie-year">${escapeHtml(movie.year)}</p>
+                    <p class="movie-genre">${escapeHtml(movie.genre)}</p>
+                    <div class="movie-actions">
+                        <a href="detail.html?id=${movie.id}" class="btn btn-view">View Details</a>
+                        <a href="edit.html?id=${movie.id}" class="btn btn-edit">Edit</a>
+                        <button onclick="confirmDelete('${movie.id}', '${escapeHtml(movie.title).replace(/'/g, "\\'")}'))" class="btn btn-delete">Delete</button>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Helper function to prevent XSS
+        function escapeHtml(text) {
+            if (text === null || text === undefined) return '';
+            const div = document.createElement('div');
+            div.textContent = String(text);
+            return div.innerHTML;
+        }
+
+        // Delete confirmation and execution
+        async function confirmDelete(movieId, movieTitle) {
+            if (confirm(`Are you sure you want to delete "${movieTitle}"?\n\nThis action cannot be undone.`)) {
+                try {
+                    await deleteMovie(movieId);
+                    alert('Movie deleted successfully!');
+                    // Reload movies to show updated list
+                    loadMovies();
+                } catch (error) {
+                    console.error('Error deleting movie:', error);
+                    alert('Failed to delete movie. Please try again.');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

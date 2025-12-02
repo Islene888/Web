@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - Movie Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="create.html">Add New Movie</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="loading" class="loading">
+            <p>Loading movie details...</p>
+        </section>
+
+        <section id="error" class="error hidden">
+            <p>Failed to load movie details. Please try again later.</p>
+            <a href="index.html" class="btn">Back to Home</a>
+        </section>
+
+        <section id="movie-detail" class="movie-detail hidden">
+            <!-- Movie details will be dynamically loaded here -->
+        </section>
+
+        <div class="actions hidden" id="actions">
+            <a href="index.html" class="btn btn-secondary">Back to List</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Movie Collection App - Homework 8</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Load movie details when page loads
+        document.addEventListener('DOMContentLoaded', loadMovieDetail);
+
+        async function loadMovieDetail() {
+            const loadingEl = document.getElementById('loading');
+            const errorEl = document.getElementById('error');
+            const detailEl = document.getElementById('movie-detail');
+            const actionsEl = document.getElementById('actions');
+
+            // Get movie ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieId = urlParams.get('id');
+
+            if (!movieId) {
+                loadingEl.classList.add('hidden');
+                errorEl.classList.remove('hidden');
+                errorEl.querySelector('p').textContent = 'No movie ID provided.';
+                return;
+            }
+
+            try {
+                const movie = await fetchMovieById(movieId);
+                displayMovieDetail(movie);
+
+                loadingEl.classList.add('hidden');
+                detailEl.classList.remove('hidden');
+                actionsEl.classList.remove('hidden');
+            } catch (error) {
+                console.error('Error loading movie:', error);
+                loadingEl.classList.add('hidden');
+                errorEl.classList.remove('hidden');
+            }
+        }
+
+        function displayMovieDetail(movie) {
+            const container = document.getElementById('movie-detail');
+
+            if (!movie) {
+                container.innerHTML = '<p>Movie not found.</p>';
+                return;
+            }
+
+            // Update page title
+            document.title = `${movie.title} - Movie Collection`;
+
+            container.innerHTML = `
+                <article class="detail-card">
+                    <h2>${escapeHtml(movie.title)}</h2>
+
+                    <dl class="movie-info">
+                        <div class="info-row">
+                            <dt>Director</dt>
+                            <dd>${escapeHtml(movie.director)}</dd>
+                        </div>
+
+                        <div class="info-row">
+                            <dt>Year</dt>
+                            <dd>${escapeHtml(movie.year)}</dd>
+                        </div>
+
+                        <div class="info-row">
+                            <dt>Genre</dt>
+                            <dd>${escapeHtml(movie.genre)}</dd>
+                        </div>
+
+                        <div class="info-row">
+                            <dt>Duration</dt>
+                            <dd>${escapeHtml(movie.duration)} minutes</dd>
+                        </div>
+
+                        <div class="info-row">
+                            <dt>Rating</dt>
+                            <dd>${escapeHtml(movie.rating)} / 10</dd>
+                        </div>
+
+                        <div class="info-row full-width">
+                            <dt>Description</dt>
+                            <dd>${escapeHtml(movie.description)}</dd>
+                        </div>
+                    </dl>
+                </article>
+            `;
+        }
+
+        // Helper function to prevent XSS
+        function escapeHtml(text) {
+            if (text === null || text === undefined) return '';
+            const div = document.createElement('div');
+            div.textContent = String(text);
+            return div.innerHTML;
+        }
+    </script>
+</body>
+</html>

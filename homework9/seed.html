@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Database - Movie Collection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Movie Collection</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="create.html">Add New Movie</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Seed Database</h2>
+            <p>Click the button below to add 12 sample movies to your Beeceptor API.</p>
+            <p><strong>Note:</strong> Make sure you have updated the API_BASE_URL in app.js first!</p>
+
+            <div id="status" class="hidden"></div>
+
+            <div id="log" class="log-container hidden">
+                <h3>Progress Log:</h3>
+                <ul id="log-list"></ul>
+            </div>
+
+            <div class="form-actions">
+                <button id="seed-btn" class="btn btn-primary" onclick="seedDatabase()">Seed Database</button>
+                <a href="index.html" class="btn btn-secondary">Go to Homepage</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Movie Collection App - Homework 8</p>
+    </footer>
+
+    <style>
+        .log-container {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .log-container h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .log-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .log-container li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .log-container li:last-child {
+            border-bottom: none;
+        }
+        .log-success {
+            color: #27ae60;
+        }
+        .log-error {
+            color: #e74c3c;
+        }
+        .log-info {
+            color: #3498db;
+        }
+        #status {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        #status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        #status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+
+    <script src="app.js"></script>
+    <script>
+        // Initial movie data - 12 movies
+        const initialMovies = [
+            {
+                title: "The Shawshank Redemption",
+                director: "Frank Darabont",
+                year: "1994",
+                genre: "Drama",
+                duration: "142",
+                rating: "9.3",
+                description: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+            },
+            {
+                title: "The Dark Knight",
+                director: "Christopher Nolan",
+                year: "2008",
+                genre: "Action",
+                duration: "152",
+                rating: "9.0",
+                description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological tests of his ability to fight injustice."
+            },
+            {
+                title: "Inception",
+                director: "Christopher Nolan",
+                year: "2010",
+                genre: "Sci-Fi",
+                duration: "148",
+                rating: "8.8",
+                description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."
+            },
+            {
+                title: "Pulp Fiction",
+                director: "Quentin Tarantino",
+                year: "1994",
+                genre: "Crime",
+                duration: "154",
+                rating: "8.9",
+                description: "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+            },
+            {
+                title: "The Matrix",
+                director: "Lana Wachowski",
+                year: "1999",
+                genre: "Sci-Fi",
+                duration: "136",
+                rating: "8.7",
+                description: "A computer programmer discovers that reality as he knows it is a simulation created by machines, and joins a rebellion to break free."
+            },
+            {
+                title: "Forrest Gump",
+                director: "Robert Zemeckis",
+                year: "1994",
+                genre: "Drama",
+                duration: "142",
+                rating: "8.8",
+                description: "The presidencies of Kennedy and Johnson, the Vietnam War, and other historical events unfold from the perspective of an Alabama man with a low IQ."
+            },
+            {
+                title: "Spirited Away",
+                director: "Hayao Miyazaki",
+                year: "2001",
+                genre: "Animation",
+                duration: "125",
+                rating: "8.6",
+                description: "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits where humans are changed into beasts."
+            },
+            {
+                title: "Parasite",
+                director: "Bong Joon-ho",
+                year: "2019",
+                genre: "Thriller",
+                duration: "132",
+                rating: "8.5",
+                description: "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan."
+            },
+            {
+                title: "The Godfather",
+                director: "Francis Ford Coppola",
+                year: "1972",
+                genre: "Crime",
+                duration: "175",
+                rating: "9.2",
+                description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant youngest son."
+            },
+            {
+                title: "Interstellar",
+                director: "Christopher Nolan",
+                year: "2014",
+                genre: "Sci-Fi",
+                duration: "169",
+                rating: "8.6",
+                description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival as Earth becomes uninhabitable."
+            },
+            {
+                title: "The Grand Budapest Hotel",
+                director: "Wes Anderson",
+                year: "2014",
+                genre: "Comedy",
+                duration: "99",
+                rating: "8.1",
+                description: "A writer encounters the owner of an aging high-class hotel, who tells him of his early years serving as a lobby boy in the hotel's glorious years."
+            },
+            {
+                title: "Get Out",
+                director: "Jordan Peele",
+                year: "2017",
+                genre: "Horror",
+                duration: "104",
+                rating: "7.7",
+                description: "A young African-American visits his white girlfriend's parents for the weekend, where his simmering uneasiness about their reception of him eventually reaches a boiling point."
+            }
+        ];
+
+        async function seedDatabase() {
+            const seedBtn = document.getElementById('seed-btn');
+            const statusEl = document.getElementById('status');
+            const logContainer = document.getElementById('log');
+            const logList = document.getElementById('log-list');
+
+            // Reset UI
+            seedBtn.disabled = true;
+            seedBtn.textContent = 'Seeding...';
+            statusEl.classList.add('hidden');
+            statusEl.classList.remove('success', 'error');
+            logContainer.classList.remove('hidden');
+            logList.innerHTML = '';
+
+            addLog('Starting database seed...', 'info');
+            addLog(`API Endpoint: ${API_ENDPOINT}`, 'info');
+
+            let successCount = 0;
+            let errorCount = 0;
+
+            for (const movie of initialMovies) {
+                try {
+                    const response = await fetch(API_ENDPOINT, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(movie)
+                    });
+
+                    if (response.ok) {
+                        const result = await response.json();
+                        addLog(`Added: ${movie.title}`, 'success');
+                        successCount++;
+                    } else {
+                        addLog(`Failed: ${movie.title} (Status: ${response.status})`, 'error');
+                        errorCount++;
+                    }
+                } catch (error) {
+                    addLog(`Error: ${movie.title} - ${error.message}`, 'error');
+                    errorCount++;
+                }
+
+                // Small delay
+                await new Promise(resolve => setTimeout(resolve, 300));
+            }
+
+            // Show final status
+            addLog(`Completed: ${successCount} success, ${errorCount} errors`, 'info');
+
+            if (errorCount === 0) {
+                statusEl.textContent = `Successfully added ${successCount} movies! You can now go to the homepage.`;
+                statusEl.classList.add('success');
+            } else {
+                statusEl.textContent = `Added ${successCount} movies with ${errorCount} errors.`;
+                statusEl.classList.add('error');
+            }
+            statusEl.classList.remove('hidden');
+
+            seedBtn.disabled = false;
+            seedBtn.textContent = 'Seed Database Again';
+        }
+
+        function addLog(message, type) {
+            const logList = document.getElementById('log-list');
+            const li = document.createElement('li');
+            li.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            li.classList.add(`log-${type}`);
+            logList.appendChild(li);
+            logList.scrollTop = logList.scrollHeight;
+        }
+    </script>
+</body>
+</html>
